@@ -1,0 +1,9 @@
+node_modules/
+build/
+*.log
+.DS_Store
+.env
+.env.local
+
+# .mcpb bundles are shipped via GitHub Releases, not committed
+*.mcpb

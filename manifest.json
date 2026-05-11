@@ -1,0 +1,38 @@
+{
+  "manifest_version": "0.3",
+  "name": "acqflo-mcp",
+  "display_name": "AcqFlo",
+  "version": "1.0.0",
+  "description": "Read and write your AcqFlo deal pipeline from Claude. Tools for listing deals, creating new ones from PDFs or web research, updating fields, changing stages, taking notes, and managing brokers.",
+  "long_description": "Connects Claude Desktop to AcqFlo, the deal-pipeline platform for commercial real estate acquisition teams. Once installed, Claude can list and search your deals, create new ones (great when paired with PDFs of offering memoranda), update underwriting fields, move deals through pipeline stages, log notes from broker calls, and manage broker contacts. Authentication uses a personal API key generated in AcqFlo Settings → AI.",
+  "author": {
+    "name": "AcqFlo",
+    "url": "https://acqflo.com"
+  },
+  "homepage": "https://acqflo.com",
+  "documentation": "https://github.com/jaqmillz/acqflo-mcp#readme",
+  "support": "https://acqflo.com/security",
+  "icon": "icon.png",
+  "keywords": ["real-estate", "crm", "deal-pipeline", "acqflo"],
+  "license": "UNLICENSED",
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "AcqFlo API Key",
+      "description": "Generate this in AcqFlo → Settings → AI → \"Claude / MCP API Keys\". Starts with mcp_.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "build/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/build/index.js"],
+      "env": {
+        "ACQFLO_API_KEY": "${user_config.api_key}"
+      }
+    }
+  }
+}

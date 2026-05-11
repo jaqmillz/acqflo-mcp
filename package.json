@@ -1,0 +1,30 @@
+{
+  "name": "acqflo-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server for AcqFlo. Lets Claude Desktop interact with your AcqFlo deal pipeline.",
+  "type": "module",
+  "bin": {
+    "acqflo-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "dev": "tsc --watch",
+    "start": "node build/index.js",
+    "typecheck": "tsc --noEmit",
+    "pack:mcpb": "npm run build && mcpb pack",
+    "validate": "mcpb validate"
+  },
+  "keywords": ["mcp", "claude", "acqflo"],
+  "author": "Jack Miller",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.3"
+  }
+}

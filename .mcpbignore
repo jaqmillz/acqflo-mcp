@@ -1,0 +1,15 @@
+# Don't ship source — only the compiled build/
+src/
+tsconfig.json
+
+# Dev-only
+.git/
+.gitignore
+.github/
+.vscode/
+*.log
+*.tgz
+*.mcpb
+
+# OS junk
+.DS_Store
