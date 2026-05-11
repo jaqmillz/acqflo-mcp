@@ -1,8 +1,12 @@
 # acqflo-mcp
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Model Context Protocol server for AcqFlo. Lets Claude Desktop interact with your AcqFlo deal pipeline.
 
 ## Install in Claude Desktop (recommended)
+
+A `.mcpb` is a [Claude Desktop Extension bundle](https://www.anthropic.com/engineering/desktop-extensions) — a single signed file that installs an MCP server with one click.
 
 1. Generate an API key in AcqFlo: **Settings → AI → Claude / MCP API Keys**. Starts with `mcp_`. Copy it.
 2. Download the latest **`acqflo-mcp.mcpb`** from the [Releases page](https://github.com/jaqmillz/acqflo-mcp/releases/latest).
@@ -53,3 +57,11 @@ npm run start
 ```
 
 The server speaks JSON-RPC over stdio, so it isn't terminal-testable — point Claude Desktop at the local `build/index.js` to exercise it end-to-end.
+
+## Security
+
+Report vulnerabilities via [SECURITY.md](SECURITY.md) — please don't file public GitHub issues for security reports.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

@@ -1,6 +1,6 @@
 {
   "name": "acqflo-mcp",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Model Context Protocol server for AcqFlo. Lets Claude Desktop interact with your AcqFlo deal pipeline.",
   "type": "module",
   "bin": {
@@ -16,7 +16,7 @@
   },
   "keywords": ["mcp", "claude", "acqflo"],
   "author": "Jack Miller",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",

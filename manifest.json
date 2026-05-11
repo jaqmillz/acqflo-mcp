@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "acqflo-mcp",
   "display_name": "AcqFlo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Read and write your AcqFlo deal pipeline from Claude. Tools for listing deals, creating new ones from PDFs or web research, updating fields, changing stages, taking notes, and managing brokers.",
   "long_description": "Connects Claude Desktop to AcqFlo, the deal-pipeline platform for commercial real estate acquisition teams. Once installed, Claude can list and search your deals, create new ones (great when paired with PDFs of offering memoranda), update underwriting fields, move deals through pipeline stages, log notes from broker calls, and manage broker contacts. Authentication uses a personal API key generated in AcqFlo Settings → AI.",
   "author": {
@@ -14,7 +14,7 @@
   "support": "https://acqflo.com/security",
   "icon": "icon.png",
   "keywords": ["real-estate", "crm", "deal-pipeline", "acqflo"],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "user_config": {
     "api_key": {
       "type": "string",
