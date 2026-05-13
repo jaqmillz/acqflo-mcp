@@ -2,6 +2,10 @@
 src/
 tsconfig.json
 
+# v2 proxy has zero runtime dependencies (node:readline + global fetch only).
+# Exclude node_modules entirely — keeps the .mcpb bundle tiny.
+node_modules/
+
 # Dev-only
 .git/
 .gitignore
@@ -10,6 +14,7 @@ tsconfig.json
 *.log
 *.tgz
 *.mcpb
+package-lock.json
 
 # OS junk
 .DS_Store

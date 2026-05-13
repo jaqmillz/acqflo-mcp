@@ -2,9 +2,9 @@
   "manifest_version": "0.3",
   "name": "acqflo-mcp",
   "display_name": "AcqFlo",
-  "version": "1.0.1",
-  "description": "Read and write your AcqFlo deal pipeline from Claude. Tools for listing deals, creating new ones from PDFs or web research, updating fields, changing stages, taking notes, and managing brokers.",
-  "long_description": "Connects Claude Desktop to AcqFlo, the deal-pipeline platform for commercial real estate acquisition teams. Once installed, Claude can list and search your deals, create new ones (great when paired with PDFs of offering memoranda), update underwriting fields, move deals through pipeline stages, log notes from broker calls, and manage broker contacts. Authentication uses a personal API key generated in AcqFlo Settings → AI.",
+  "version": "2.0.0",
+  "description": "Connect Claude Desktop to AcqFlo. 60+ tools across deals, brokers, organizations, files, enrichment, scoring, and more — plus 8 underwriting workflow prompts.",
+  "long_description": "Connects Claude Desktop to AcqFlo, the deal-pipeline platform for commercial real estate acquisition teams. This is a thin stdio→HTTP proxy that forwards to AcqFlo's MCP endpoint at /api/mcp-rpc; the server logic lives in the AcqFlo app and updates roll out without requiring a new bundle install. Authentication uses a personal API key generated in AcqFlo Settings → AI. Drop-in replacement for v1.0.x — same API key works.",
   "author": {
     "name": "AcqFlo",
     "url": "https://acqflo.com"
@@ -22,6 +22,13 @@
       "description": "Generate this in AcqFlo → Settings → AI → \"Claude / MCP API Keys\". Starts with mcp_.",
       "sensitive": true,
       "required": true
+    },
+    "acqflo_url": {
+      "type": "string",
+      "title": "AcqFlo URL (optional)",
+      "description": "Override the AcqFlo base URL. Leave blank for production (https://acqflo.com). Useful for self-hosted or staging.",
+      "default": "https://acqflo.com",
+      "required": false
     }
   },
   "server": {
@@ -31,7 +38,8 @@
       "command": "node",
       "args": ["${__dirname}/build/index.js"],
       "env": {
-        "ACQFLO_API_KEY": "${user_config.api_key}"
+        "ACQFLO_API_KEY": "${user_config.api_key}",
+        "ACQFLO_URL": "${user_config.acqflo_url}"
       }
     }
   }

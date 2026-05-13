@@ -1,7 +1,7 @@
 {
   "name": "acqflo-mcp",
-  "version": "1.0.1",
-  "description": "Model Context Protocol server for AcqFlo. Lets Claude Desktop interact with your AcqFlo deal pipeline.",
+  "version": "2.0.0",
+  "description": "Stdio→HTTP proxy that connects Claude Desktop to AcqFlo. Forwards JSON-RPC to /api/mcp-rpc; the server lives in the AcqFlo app.",
   "type": "module",
   "bin": {
     "acqflo-mcp": "./build/index.js"
@@ -18,10 +18,7 @@
   "author": "Jack Miller",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "zod": "^3.25.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@anthropic-ai/mcpb": "^2.1.2",
     "@types/node": "^22.10.0",
