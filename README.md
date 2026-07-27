@@ -2,18 +2,25 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Model Context Protocol server for AcqFlo. Lets Claude Desktop interact with your AcqFlo deal pipeline.
+Model Context Protocol server for AcqFlo. Connects Claude — Claude.ai (web), Claude Desktop, and Claude Code — to your AcqFlo deal pipeline.
 
-## Install in Claude Desktop (recommended)
+## Connect (recommended)
 
-A `.mcpb` is a [Claude Desktop Extension bundle](https://www.anthropic.com/engineering/desktop-extensions) — a single signed file that installs an MCP server with one click.
+AcqFlo hosts the MCP server with OAuth, so you add it as a **custom connector by URL** — no download, no API key, and the same URL works in every Claude client.
 
-1. Generate an API key in AcqFlo: **Settings → AI → Claude / MCP API Keys**. Starts with `mcp_`. Copy it.
-2. Download the latest **`acqflo-mcp.mcpb`** from the [Releases page](https://github.com/jaqmillz/acqflo-mcp/releases/latest).
-3. Double-click the `.mcpb` file. Claude Desktop opens, shows the extension details, and prompts for your API key. Paste it.
-4. Done. Tools appear in Claude Desktop's tool picker.
+Connector URL:
 
-That's it — no terminal, no `claude_desktop_config.json` editing.
+```
+https://acqflo.com/api/mcp-rpc
+```
+
+- **Claude.ai (web):** Settings → Connectors → **Add custom connector** → paste the URL (leave the OAuth Client ID/Secret fields blank) → sign in.
+- **Claude Desktop:** Settings → Connectors → **Add custom connector** → paste the URL → sign in.
+- **Claude Code (CLI):** `claude mcp add --transport http acqflo https://acqflo.com/api/mcp-rpc --scope user`
+
+Sign in through AcqFlo's OAuth (Microsoft OAuth if your tenant uses Azure AD) and click **Approve**. The connector binds to the AcqFlo organization selected at approval time. You can also start this from **AcqFlo → Claude → Connect Claude**.
+
+> The old `.mcpb` desktop bundle is retired — the hosted connector above replaces it and works in the browser too. The stdio server in this repo remains only for local development (see below).
 
 ## Tools exposed
 
